@@ -1,0 +1,16 @@
+media
+
+*.log
+*.pot
+*.pyc
+.DS_Store
+
+
+*.sqlite
+.codeintel
+*.sublime-*
+
+
+MANIFEST
+dist/*
+
