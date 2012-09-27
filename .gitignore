@@ -4,6 +4,7 @@ media
 *.pot
 *.pyc
 .DS_Store
+.sass-cache
 
 
 *.sqlite
