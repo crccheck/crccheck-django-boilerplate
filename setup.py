@@ -1,5 +1,6 @@
 import sys; sys.exit("NOPE!")
 
+from setuptools import find_packages
 from distutils.core import setup
 
 
@@ -9,11 +10,12 @@ setup(
     # author
     # author_email
     # url
-    packages=['xxxxxxxx', ],
+    packages=find_packages('.', exclude=('exampleproject*',)),
+    include_package_data=True,  # automatically include things from MANIFEST
     license='Apache License, Version 2.0',
     long_description=open('README.md').read(),
     classifiers=[
-        "Framework :: Django",
         "Development Status :: 3 - Alpha",
+        "Framework :: Django",
     ],
 )
