@@ -1,13 +1,14 @@
-Ermahgerd Jain Go
-=================
+Django Start App
+================
 
-Initial Commit
+This is a boilerplate template for starting a standalong Django app. It comes
+with these amazing features:
+* a non-functional setup.py
+* example project for development that's Heroku-ready
+* a testing app for your app built into the example project
+* APL2 license
 
-This Project Is Not PIP Installable! There is a setup.py, but it is a trick!
-Defaults to APL2 license.
-
-Boilerplate for starting a standalone django app + example-slash-testing project that is Heroku-ready.
-
+Instructions for once you get started:
 
 Setup
 -----
