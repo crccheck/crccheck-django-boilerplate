@@ -1,2 +1,2 @@
-include setup.py README.* MANIFEST.in LICENSE VERSION
-recursive-include {{ project_dir }} *.py *.html *.txt *.css *.js *.png *.jpg
+include setup.py README.* MANIFEST.in LICENSE
+recursive-include {{ MY_PROJECT }} *
