@@ -1,5 +1,9 @@
+# Django generated files
 media
+*.sqlite
 
+
+# Randomly generated files
 *.log
 *.pot
 *.pyc
@@ -7,11 +11,12 @@ media
 .sass-cache
 
 
-*.sqlite
+# IDE
 .codeintel
 *.sublime-*
 
 
+# packaging
 MANIFEST
 dist/*
-
+*.egg-info
