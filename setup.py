@@ -10,7 +10,7 @@ setup(
     # author
     # author_email
     # url
-    packages=find_packages('.', exclude=('exampleproject*',)),
+    packages=find_packages('.', exclude=('example_project*',)),
     include_package_data=True,  # automatically include things from MANIFEST
     license='Apache License, Version 2.0',
     long_description=open('README.md').read(),
