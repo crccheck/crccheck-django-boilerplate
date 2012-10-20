@@ -1,12 +1,16 @@
 PROJECT=./example_project
 
 help:
+	@echo "  make help    - this help"
 	@echo "  make test    - run test suite"
 	@echo "  make resetdb - delete and recreate the sqlite database"
 
 
 test:
-	python $(PROJECT)/manage.py test
+#
+#   -s    don't capture stdout
+#
+	python $(PROJECT)/manage.py test -s
 
 
 resetdb:
@@ -15,4 +19,4 @@ resetdb:
 	python $(PROJECT)/manage.py syncdb --noinput
 
 
-.PHONY: test resetdb
+.PHONY: help test resetdb

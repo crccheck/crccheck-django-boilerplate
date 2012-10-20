@@ -125,6 +125,7 @@ INSTALLED_APPS = (
     # 'django_extensions',
 
     'django_nose',
+    'example_project.test_app',
 )
 
 # A sample logging configuration. The only tangible logging
