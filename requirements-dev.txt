@@ -6,3 +6,4 @@ django-nose
 ipython
 ipdb
 ipdbplugin
+factory-boy
