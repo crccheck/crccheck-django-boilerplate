@@ -122,7 +122,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 
     # Uncomment the next line to get runshell_plus, shell_plus, etc
-    # 'django_extensions',
+    'django_extensions',
 
     'django_nose',
     'example_project.test_app',
