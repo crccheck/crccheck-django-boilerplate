@@ -20,8 +20,15 @@ urlpatterns = patterns('',
 
 # serve media
 if settings.DEBUG:
+    from django.http import HttpResponse
+
+    def favicon(request):
+        image_data = open("example_project/static/favicon.ico", "rb").read()
+        return HttpResponse(image_data, mimetype="image/x-icon")
+
     urlpatterns += patterns('',
         url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
             'document_root': settings.MEDIA_ROOT,
         }),
-   )
+        url(r'^favicon.ico$', favicon),
+    )
