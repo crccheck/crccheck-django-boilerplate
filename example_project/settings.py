@@ -9,7 +9,8 @@ def project_dir(*paths):
     return os.path.join(base, *paths)
 
 
-DEBUG = True
+# default to DEBUG=True
+DEBUG = os.environ.get('ENVIRONMENT', 'DEV') == 'DEV'
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -113,7 +114,7 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 )
 
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -125,12 +126,15 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 
-    # Uncomment the next line to get runshell_plus, shell_plus, etc
-    'django_extensions',
-
-    'django_nose',
-    'example_project.test_app',
-)
+    '{{ app_name }}',
+]
+if DEBUG:
+    # extra apps used for development
+    INSTALLED_APPS += [
+        'django_extensions',
+        'django_nose',
+        'example_project.test_app',
+    ]
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
