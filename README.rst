@@ -16,3 +16,36 @@ Setup
 ::
 
     pip install -r requirements-dev.txt
+
+
+Using Postgresql instead of Sqlite as your database::
+
+    export DATABASE_URL='postgres:///{{ app_name }}'
+
+
+
+Deploying to Heroku
+-------------------
+
+Create a new app and give it a database::
+
+    $ heroku apps:create
+    $ heroku addons:add heroku-postgresql:dev
+
+Promote the database to ``DATABASE_URL``::
+
+    $ heroku config | grep HEROKU_POSTGRESQL
+    HEROKU_POSTGRESQL_RED_URL: postgres://user3123:passkja83kd8@ec2-117-21-174-214.compute-1.amazonaws.com:6212/db982398
+    $ heroku pg:promote RED
+
+Install the pgbackups addon::
+
+    $ heroku addons:add pgbackups
+
+Migrate data from your local Postgresql to Heroku (https://devcenter.heroku.com/articles/heroku-postgres-import-export)::
+
+    $ pg_dump -Fc --no-acl --no-owner {{ app_name }} > {{ app_name }}.dump
+
+Upload ``{{ app_name }}.dump`` someplace on the Internets and pull it into Heroku::
+
+    $ heroku pgbackups:restore DATABASE http://example.com/{{ app_name }}.dump
