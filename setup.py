@@ -1,20 +1,17 @@
 exit("NOPE!")
 
-from setuptools import find_packages
-from distutils.core import setup
-
-import {{ MY_PROJECT }} as app
+from setuptools import setup, find_packages
 
 setup(
-    name=app.__name__,
-    version=app.__version__,
-    # author
-    # author_email
-    # url
-    packages=find_packages('.', exclude=('example_project*',)),
+    name='{{ app_name }}',
+    version='0.1.0',
+    author='',
+    author_email='c@crccheck.com',
+    url='',
+    packages=[{{ app_name }}],
     include_package_data=True,  # automatically include things from MANIFEST
     license='Apache License, Version 2.0',
-    description=app.__doc__.strip(),
+    description='',
     long_description=open('README.rst').read(),
     classifiers=[
         "Development Status :: 3 - Alpha",
