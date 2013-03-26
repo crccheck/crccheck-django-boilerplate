@@ -18,7 +18,8 @@ urlpatterns = patterns('',
 )
 
 
-# serve media
+# extra urlpatterns for development used for serving media and for serving a
+# dummy favicon.
 if settings.DEBUG:
     from django.http import HttpResponse
 
