@@ -23,7 +23,7 @@ if settings.DEBUG:
     from django.http import HttpResponse
 
     def favicon(request):
-        image_data = open("example_project/static/favicon.ico", "rb").read()
+        image_data = open("example_project/static_root/favicon.ico", "rb").read()
         return HttpResponse(image_data, mimetype="image/x-icon")
 
     urlpatterns += patterns('',
