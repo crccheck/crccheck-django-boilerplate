@@ -1,9 +1,10 @@
 PROJECT=./example_project
 
 help:
+	@echo "make commands:"
 	@echo "  make help    - this help"
 	@echo "  make test    - run test suite"
-	@echo "  make resetdb - delete and recreate the sqlite database"
+	@echo "  make resetdb - drop and recreate the database"
 
 
 test:
@@ -14,8 +15,7 @@ test:
 
 
 resetdb:
-	$(foreach db, $(wildcard $(PROJECT)/*.sqlite),\
-		rm $(db);)
+	python $(PROJECT)/manage.py reset_db --router=default --noinput
 	python $(PROJECT)/manage.py syncdb --noinput
 
 
