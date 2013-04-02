@@ -1,6 +1,7 @@
 # Django generated files
 *.sqlite
 media
+example_project/static_root
 
 
 # Environment variables
