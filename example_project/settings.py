@@ -130,13 +130,6 @@ INSTALLED_APPS = [
 
     '{{ app_name }}',
 ]
-if DEBUG:
-    # extra apps used for development
-    INSTALLED_APPS += [
-        'django_extensions',
-        'django_nose',
-        'example_project.test_app',
-    ]
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -188,4 +181,17 @@ LOGGING = {
     }
 }
 
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+if DEBUG:
+    TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+    # extra apps used for development
+    INSTALLED_APPS += [
+        'django_extensions',
+        'django_nose',
+        'example_project.test_app',
+    ]
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
