@@ -27,5 +27,6 @@ venv
 
 # created during packaging
 *.egg-info
-dist/*
+build/
+dist/
 MANIFEST
