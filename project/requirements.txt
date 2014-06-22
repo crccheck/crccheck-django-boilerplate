@@ -1,0 +1,16 @@
+# Django==1.7.0
+https://www.djangoproject.com/download/1.7.b4/tarball/
+
+dj-database-url==0.3.0
+psycopg2==2.5.3
+project-runpy==0.3.0
+django-extensions==1.3.8
+
+
+# Dev requirements
+#
+# Use one requirements.txt to keep things simple for now.
+ipdb==0.8
+mock==1.0.1
+factory-boy==2.4.0
+names==0.3.0
