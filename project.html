@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>A Simple Django 1.7 Project &mdash; CRCCHECK Django Boilerplate 0.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="CRCCHECK Django Boilerplate 0.0.0 documentation" href="index.html" />
+    <link rel="prev" title="A Simple Django App" href="app.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="app.html" title="A Simple Django App"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">CRCCHECK Django Boilerplate 0.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="a-simple-django-1-7-project">
+<h1>A Simple Django 1.7 Project<a class="headerlink" href="#a-simple-django-1-7-project" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="design-considerations">
+<h2>Design Considerations<a class="headerlink" href="#design-considerations" title="Permalink to this headline">¶</a></h2>
+<p>Almost everything is optimized for <em>simplicity</em>. If you&#8217;re maintaining dozens
+of Django sites, you don&#8217;t want to have to wade through a lot of files. The
+Django project is designed to be deployable-to <a class="reference external" href="https://devcenter.heroku.com/articles/getting-started-with-django">Heroku</a>.</p>
+</div>
+<div class="section" id="project-readme">
+<h2>Project Readme<a class="headerlink" href="#project-readme" title="Permalink to this headline">¶</a></h2>
+<p>Is written in Markdown because I don&#8217;t like using ReStructured Text. Projects
+are never published to PyPI, so I can use the format I like.</p>
+</div>
+<div class="section" id="project-license">
+<h2>Project License<a class="headerlink" href="#project-license" title="Permalink to this headline">¶</a></h2>
+<p>I default to Apache. I hear it has better patent clauses.</p>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p><strong>Python</strong>: one <tt class="docutils literal"><span class="pre">requirements.txt</span></tt> containing production, dev, and testing,
+etc. Normally, I would split these up, but for the simple approach, I use
+something simpler (hah!).</p>
+<p><strong>Node</strong>: I use <a class="reference external" href="http://gruntjs.com/">Grunt</a> for compiling static media. It
+just works, has good support, and good documentation. The requirements are
+specified in <tt class="docutils literal"><span class="pre">package.json</span></tt>.</p>
+<p><strong>Ruby</strong>: I use <a class="reference external" href="http://sass-lang.com/">SASS</a> for compiling css.
+Specifically, I use SASS and not SCSS because I can fit more lines of code in
+one screen because SASS doesn&#8217;t use braces. In addition, I use SASS 3.3 because
+sourcemaps greatly improve the speed of writing CSS.</p>
+</div>
+<div class="section" id="task-runner">
+<h2>Task Runner<a class="headerlink" href="#task-runner" title="Permalink to this headline">¶</a></h2>
+<p>I use <tt class="docutils literal"><span class="pre">make</span></tt> as my general task runner. For bigger projects, I like <a class="reference external" href="http://invoke.readthedocs.org/en/latest/">Invoke</a></p>
+<p>My <tt class="docutils literal"><span class="pre">makefile</span></tt> commands are: <em>TODO</em></p>
+</div>
+<div class="section" id="settings">
+<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<p>I use a single <tt class="docutils literal"><span class="pre">settings.py</span></tt> file, not a settings module. Logic for different
+environments are done with enironment variables.</p>
+</div>
+<div class="section" id="project-layout">
+<h2>Project Layout<a class="headerlink" href="#project-layout" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="apps">
+<h3><tt class="docutils literal"><span class="pre">apps</span></tt><a class="headerlink" href="#apps" title="Permalink to this headline">¶</a></h3>
+<p>Based on research into other Django project layouts, and the <a class="reference external" href="http://django-skel.readthedocs.org/en/latest/layout/">django-skel</a> project. If it&#8217;s in your
+<tt class="docutils literal"><span class="pre">INSTALLED_APPS</span></tt>, it goes in the <tt class="docutils literal"><span class="pre">apps/</span></tt> directory.</p>
+</div>
+<div class="section" id="libs">
+<h3><tt class="docutils literal"><span class="pre">libs</span></tt><a class="headerlink" href="#libs" title="Permalink to this headline">¶</a></h3>
+<p>I have a <tt class="docutils literal"><span class="pre">libs/</span></tt> directory like <a class="reference external" href="http://django-skel.readthedocs.org/en/latest/layout/">django-skel</a> too, except I reserve it for
+Python code that&#8217;s local to the project, but not in your <tt class="docutils literal"><span class="pre">INSTALLED_APPS</span></tt>.
+That usually means it&#8217;s full of little utilities, but there can be Django views
+here too, just nothing with models.</p>
+</div>
+</div>
+<div class="section" id="todo">
+<h2>TODO<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Add coverage</li>
+<li>Procfile</li>
+<li>Grunfile.coffee</li>
+<li><tt class="docutils literal"><span class="pre">whitenoise</span></tt></li>
+<li>Bower</li>
+<li>Need to specify buildpack_url for heroku</li>
+<li>required .env</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">A Simple Django 1.7 Project</a><ul>
+<li><a class="reference internal" href="#design-considerations">Design Considerations</a></li>
+<li><a class="reference internal" href="#project-readme">Project Readme</a></li>
+<li><a class="reference internal" href="#project-license">Project License</a></li>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#task-runner">Task Runner</a></li>
+<li><a class="reference internal" href="#settings">Settings</a></li>
+<li><a class="reference internal" href="#project-layout">Project Layout</a><ul>
+<li><a class="reference internal" href="#apps"><tt class="docutils literal"><span class="pre">apps</span></tt></a></li>
+<li><a class="reference internal" href="#libs"><tt class="docutils literal"><span class="pre">libs</span></tt></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#todo">TODO</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="app.html"
+                        title="previous chapter">A Simple Django App</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/project.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="app.html" title="A Simple Django App"
+             >previous</a> |</li>
+        <li><a href="index.html">CRCCHECK Django Boilerplate 0.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, crccheck.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
