@@ -11,6 +11,11 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   app
+   project
+
+
+My personal boilerplates for Django apps and projects.
 
 
 Indices and tables
