@@ -1,4 +1,5 @@
 PROJECT=./example_project
+MANAGE=python $(PROJECT)/manage.py
 
 help:
 	@echo "make commands:"
@@ -18,15 +19,14 @@ clean:
 
 
 test:
-#
-#   -s    don't capture stdout
-#
-	python $(PROJECT)/manage.py test -s
+	$(MANAGE) test {{ project_name }}
 
 
+# as an alternative, you can reset your entire database with:
+# python $(PROJECT)/manage.py reset_db --router=default --noinput
 resetdb:
-	python $(PROJECT)/manage.py reset_db --router=default --noinput
-	python $(PROJECT)/manage.py syncdb --noinput
+	$(MANAGE) sqlclear {{ project_name }} | $(MANAGE) dbshell
+	$(MANAGE) syncdb --noinput
 
 
 .PHONY: help clean test resetdb
