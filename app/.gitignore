@@ -1,5 +1,5 @@
 # Django generated files
-*.sqlite
+*.db
 media
 example_project/static_root
 

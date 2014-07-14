@@ -2,6 +2,7 @@
 import os
 
 import dj_database_url
+from project_runpy import env
 
 
 def project_dir(*paths):
@@ -10,7 +11,7 @@ def project_dir(*paths):
 
 
 # default to DEBUG=True
-DEBUG = os.environ.get('ENVIRONMENT', 'DEV') == 'DEV'
+DEBUG = env.get('DEBUG')
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -20,7 +21,7 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASES = {'default': dj_database_url.config(default='sqlite:///' +
-    project_dir('example_project.sqlite'))}
+    project_dir('example_project.db'))}
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
@@ -123,12 +124,13 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
     'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
 
+    # app
     '{{ project_name }}',
+
+    # support
+    'django_extensions',
 ]
 
 # A sample logging configuration. The only tangible logging
@@ -157,7 +159,7 @@ LOGGING = {
         },
         'console': {
             'level': 'DEBUG',
-            'class': 'example_project.logging_handlers.ColorizingStreamHandler',
+            'class': 'project_runpy.ColorizingStreamHandler',
         },
     },
     'loggers': {
@@ -181,15 +183,6 @@ LOGGING = {
     }
 }
 
-if DEBUG:
-    TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-
-    # extra apps used for development
-    INSTALLED_APPS += [
-        'django_extensions',
-        'django_nose',
-        'example_project.test_app',
-    ]
 
 try:
     from .local_settings import *
