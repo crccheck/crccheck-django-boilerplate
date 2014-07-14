@@ -1,3 +1,3 @@
 include setup.py README.* MANIFEST.in LICENSE
-recursive-include {{ app_name }} *
+recursive-include {{ project_name }} *
 global-exclude *.pyc

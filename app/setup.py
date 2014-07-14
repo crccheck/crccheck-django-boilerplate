@@ -3,12 +3,12 @@ exit("NOPE!")
 from setuptools import setup
 
 setup(
-    name='{{ app_name }}',
+    name='{{ project_name }}',
     version='0.1.0',
     author='',
     author_email='c@crccheck.com',
     url='',
-    packages=['{{ app_name }}'],
+    packages=['{{ project_name }}'],
     include_package_data=True,  # automatically include things from MANIFEST.in
     license='Apache License, Version 2.0',
     description='',

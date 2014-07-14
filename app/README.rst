@@ -20,7 +20,7 @@ Setup
 
 Using Postgresql instead of Sqlite as your database::
 
-    export DATABASE_URL='postgres:///{{ app_name }}'
+    export DATABASE_URL='postgres:///{{ project_name }}'
 
 
 
@@ -44,8 +44,8 @@ Install the pgbackups addon::
 
 Migrate data from your local Postgresql to Heroku (https://devcenter.heroku.com/articles/heroku-postgres-import-export)::
 
-    $ pg_dump -Fc --no-acl --no-owner {{ app_name }} > {{ app_name }}.dump
+    $ pg_dump -Fc --no-acl --no-owner {{ project_name }} > {{ project_name }}.dump
 
-Upload ``{{ app_name }}.dump`` someplace on the Internets and pull it into Heroku::
+Upload ``{{ project_name }}.dump`` someplace on the Internets and pull it into Heroku::
 
-    $ heroku pgbackups:restore DATABASE http://example.com/{{ app_name }}.dump
+    $ heroku pgbackups:restore DATABASE http://example.com/{{ project_name }}.dump
