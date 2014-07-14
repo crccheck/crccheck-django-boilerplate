@@ -1,13 +1,15 @@
 ## Quickstart
 
+1. download/clone this someplace local
+2. start off in your new app's directory
+
 ```bash
 mkvirtualenv `basename $PWD`
 pip install Django
-# TODO move all this out
-# http://www.just-one-liners.com/communication/45187
-export DJ_NAME=<app name>
-django-admin startproject $DJ_NAME . \
-  --template=../crccheck-django-boilerplate/app/ \
-  -e py,rst,in
-\mv app_name $DJ_NAME
+/path/to/crccheck-django-boilerplate/build_app <app_name>
+git init
+git commit -m "initial commit" --allow-empty
+git add .
+git commit -m "initial project structure"
+pip install -r requirements.txt
 ```

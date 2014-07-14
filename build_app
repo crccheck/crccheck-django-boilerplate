@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [ -z $1 ]; then
+    echo "must give an app name"
+    exit 1
+fi
+
+# http://www.just-one-liners.com/communication/45187
+DJ_NAME=$1
+
+# http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+
+# django startproject
+django-admin.py startproject $DJ_NAME . \
+  --template=$DIR/app/ \
+  -e py,rst,in
+# django startapp
+\mv app_name $DJ_NAME
