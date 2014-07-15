@@ -133,52 +133,41 @@ INSTALLED_APPS = [
     'django_extensions',
 ]
 
-# A sample logging configuration. The only tangible logging
-# performed by this configuration is to send an email to
-# the site admins on every HTTP 500 error when DEBUG=False.
-# See http://docs.djangoproject.com/en/dev/topics/logging for
-# more details on how to customize your logging configuration.
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    # Log everything
     'root': {
-        'level': 'DEBUG',
+        'level': os.environ.get('LOGGING_LEVEL', 'WARNING'),
         'handlers': ['console'],
     },
     'filters': {
         'require_debug_false': {
             '()': 'django.utils.log.RequireDebugFalse'
-        }
+        },
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+        'readable_sql': {
+            '()': 'project_runpy.ReadableSqlFilter',
+        },
     },
     'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
-        },
         'console': {
             'level': 'DEBUG',
             'class': 'project_runpy.ColorizingStreamHandler',
         },
     },
     'loggers': {
-        # Keep logs from filling up with sql
         'django.db.backends': {
-            'level': 'ERROR',
+            'level': 'DEBUG' if env.get('SQL') else 'INFO',
             'handlers': ['console'],
-            'propagate': True,
+            'filters': ['require_debug_true', 'readable_sql'],
+            'propagate': False,
         },
-        'django.request': {
-            'handlers': ['mail_admins'],
+        'factory': {
             'level': 'ERROR',
-            'propagate': True,
-        },
-        # Silence nose a bit
-        'nose': {
-            'level': 'WARNING',
-            'handlers': ['console'],
-            'propagate': True,
+            'propagate': False,
         },
     }
 }
