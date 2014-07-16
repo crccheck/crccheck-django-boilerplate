@@ -1,35 +1,25 @@
-from django.conf import settings
 from django.conf.urls import patterns, include, url
-from django.views.static import serve
+from django.http import HttpResponse
+from django.views.generic import TemplateView
 
 from django.contrib import admin
 admin.autodiscover()
 
+
+def favicon(request):
+    """Hack to keep logs from filling with favicon.ico requests."""
+    image_data = open("example_project/static/favicon.ico", "rb").read()
+    return HttpResponse(image_data, mimetype="image/x-icon")
+
+
 urlpatterns = patterns('',
+    url(r'^admin/', include(admin.site.urls)),
+
     url(r'^', include('{{ project_name }}.urls',
         namespace='{{ project_name }}', app_name='{{ project_name }}')),
 
-    url(r'^admin/', include(admin.site.urls)),
-
-    # Use Django to serve static media even when DEBUG=False
-    url(r'^static/(?P<path>.*)$', serve, {
-        'document_root': settings.STATIC_ROOT,
-    }),
+    # HACK patterns
+    url(r'^favicon.ico$', favicon),
+    url(r'^robots.txt', TemplateView.as_view(
+        content_type='text/plain', template_name='robots.txt')),
 )
-
-
-# extra urlpatterns for development used for serving media and for serving a
-# dummy favicon.
-if settings.DEBUG:
-    from django.http import HttpResponse
-
-    def favicon(request):
-        image_data = open("example_project/static/favicon.ico", "rb").read()
-        return HttpResponse(image_data, mimetype="image/x-icon")
-
-    urlpatterns += patterns('',
-        url(r'^media/(?P<path>.*)$', serve, {
-            'document_root': settings.MEDIA_ROOT,
-        }),
-        url(r'^favicon.ico$', favicon),
-    )

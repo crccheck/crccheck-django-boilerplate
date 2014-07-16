@@ -32,8 +32,9 @@ Create a new app and give it a database::
 
     $ heroku apps:create
     $ heroku addons:add heroku-postgresql:dev
+    $ heroku config:set DJANGO_SETTINGS_MODULE=example_project.settings
 
-Promote the database to ``DATABASE_URL``::
+Promote the database to ``DATABASE_URL`` (this should happen automatically)::
 
     $ heroku config | grep HEROKU_POSTGRESQL
     HEROKU_POSTGRESQL_RED_URL: postgres://user3123:passkja83kd8@ec2-117-21-174-214.compute-1.amazonaws.com:6212/db982398
