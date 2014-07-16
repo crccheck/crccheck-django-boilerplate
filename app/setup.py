@@ -1,5 +1,3 @@
-exit("NOPE!")
-
 from setuptools import setup
 
 setup(

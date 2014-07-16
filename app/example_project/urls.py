@@ -20,6 +20,6 @@ urlpatterns = patterns('',
 
     # HACK patterns
     url(r'^favicon.ico$', favicon),
-    url(r'^robots.txt', TemplateView.as_view(
+    url(r'^robots.txt$', TemplateView.as_view(
         content_type='text/plain', template_name='robots.txt')),
 )
