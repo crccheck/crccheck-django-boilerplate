@@ -1,1 +1,1 @@
-# empty models.py
+from django.test import TestCase
