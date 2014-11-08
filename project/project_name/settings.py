@@ -20,9 +20,9 @@ from project_runpy import env
 SECRET_KEY = env.get('SECRET_KEY', 'Rotom')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.get('DEBUG', False)
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = ['*']  # TODO
 
@@ -59,12 +59,6 @@ WSGI_APPLICATION = '{{ app_name }}.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 DATABASES = {'default': dj_database_url.config(default='sqlite:///{{ app_name }}.db')}
 
 # Internationalization
@@ -85,3 +79,42 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'root': {
+        'level': os.environ.get('LOGGING_LEVEL', 'WARNING'),
+        'handlers': ['console'],
+    },
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        },
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+        'readable_sql': {
+            '()': 'project_runpy.ReadableSqlFilter',
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'project_runpy.ColorizingStreamHandler',
+        },
+    },
+    'loggers': {
+        'django.db.backends': {
+            'level': 'DEBUG' if env.get('SQL', False) else 'INFO',
+            'handlers': ['console'],
+            'filters': ['require_debug_true', 'readable_sql'],
+            'propagate': False,
+        },
+        'factory': {
+            'level': 'ERROR',
+            'propagate': False,
+        },
+    }
+}

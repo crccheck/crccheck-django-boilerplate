@@ -1,7 +1,7 @@
 {
   "name": "{{ app_name }}",
   "version": "0.0.0",
-  "description": "Ox Scale",
+  "description": "{{ app_name }} description",
   "author": "",
   "license": "Apache",
   "devDependencies": {
@@ -9,7 +9,7 @@
     "grunt-autoprefixer": "^0.7.5",
     "grunt-contrib-concat": "^0.4.0",
     "grunt-contrib-jshint": "^0.10.0",
-    "grunt-contrib-sass": "^0.7.3",
+    "grunt-sass": "^0.7.3",
     "grunt-contrib-uglify": "^0.5.0",
     "grunt-contrib-watch": "^0.6.1"
   }
