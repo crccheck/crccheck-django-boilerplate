@@ -1,7 +1,7 @@
 {
-  "name": "{{ app_name }}",
+  "name": "{{ project_name }}",
   "version": "0.0.0",
-  "description": "{{ app_name }} description",
+  "description": "{{ project_name }} description",
   "author": "",
   "license": "Apache",
   "devDependencies": {

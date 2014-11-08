@@ -1,5 +1,5 @@
 """
-Django settings for {{ app_name }} project.
+Django settings for {{ project_name }} project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/dev/topics/settings/
@@ -51,15 +51,15 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = '{{ app_name }}.urls'
+ROOT_URLCONF = '{{ project_name }}.urls'
 
-WSGI_APPLICATION = '{{ app_name }}.wsgi.application'
+WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-DATABASES = {'default': dj_database_url.config(default='sqlite:///{{ app_name }}.db')}
+DATABASES = {'default': dj_database_url.config(default='sqlite:///{{ project_name }}.db')}
 
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/

@@ -1,4 +1,4 @@
-## Quickstart
+## Quickstart App
 
 1. download/clone this someplace local
 2. start off in your new app's directory
@@ -13,3 +13,12 @@ git add .
 git commit -m "initial project structure"
 pip install -r requirements.txt
 ```
+
+## Quickstart Project
+
+```bash
+mkvirtualenv `basename $PWD`
+pip install Django
+django-admin startproject \
+  --template=https://github.com/crccheck/crccheck-dj-project-boilerplate/archive/master.zip \
+  --name=Makefile --extension=md

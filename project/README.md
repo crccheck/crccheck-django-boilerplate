@@ -1,4 +1,4 @@
-{{ app_name }}
+{{ project_name }}
 ==============
 
 
@@ -16,5 +16,5 @@ Setup your Python path:
 
 Setup your environment:
 
-    DJANGO_SETTINGS_MODULE={{ app_name }}.settings
+    DJANGO_SETTINGS_MODULE={{ project_name }}.settings
     DEBUG=1
