@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='{{ project_name }}',
-    version='0.1.0',
+    version='0.0.0',
     author='',
     author_email='c@crccheck.com',
     url='',
