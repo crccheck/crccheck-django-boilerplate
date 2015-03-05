@@ -15,13 +15,11 @@ Contents:
    project
 
 
-My personal boilerplates for Django apps and projects.
+Disclaimer
+----------
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+These are my personal boilerplates for Django apps and projects. These are
+*very* opinionated and inspiration is given when I can recall. If you have a
+large project, these boilerplates will not work. For example, these settings
+are in one ``settings.py``, but for a large project, you'll most likely use a
+settings module.

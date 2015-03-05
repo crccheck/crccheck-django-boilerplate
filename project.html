@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>A Simple Django 1.7 Project &mdash; CRCCHECK Django Boilerplate 0.0.0 documentation</title>
+    <title>A simple Django 1.7 project &mdash; CRCCHECK Django Boilerplate 0.0.0 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="CRCCHECK Django Boilerplate 0.0.0 documentation" href="index.html" />
-    <link rel="prev" title="A Simple Django App" href="app.html" /> 
+    <link rel="prev" title="A simple Django app" href="app.html" /> 
   </head>
   <body>
     <div class="related">
@@ -34,7 +34,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="app.html" title="A Simple Django App"
+          <a href="app.html" title="A simple Django app"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">CRCCHECK Django Boilerplate 0.0.0 documentation</a> &raquo;</li> 
       </ul>
@@ -46,87 +46,181 @@
           <div class="body">
             
   <div class="section" id="a-simple-django-1-7-project">
-<h1>A Simple Django 1.7 Project<a class="headerlink" href="#a-simple-django-1-7-project" title="Permalink to this headline">¶</a></h1>
+<h1>A simple Django 1.7 project<a class="headerlink" href="#a-simple-django-1-7-project" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="design-considerations">
 <h2>Design Considerations<a class="headerlink" href="#design-considerations" title="Permalink to this headline">¶</a></h2>
 <p>Almost everything is optimized for <em>simplicity</em>. If you&#8217;re maintaining dozens
 of Django sites, you don&#8217;t want to have to wade through a lot of files. The
 Django project is designed to be deployable-to <a class="reference external" href="https://devcenter.heroku.com/articles/getting-started-with-django">Heroku</a>.</p>
 </div>
-<div class="section" id="project-readme">
-<h2>Project Readme<a class="headerlink" href="#project-readme" title="Permalink to this headline">¶</a></h2>
-<p>Is written in Markdown because I don&#8217;t like using ReStructured Text. Projects
-are never published to PyPI, so I can use the format I like.</p>
+<div class="section" id="django-project-layout">
+<h2>Django Project Layout<a class="headerlink" href="#django-project-layout" title="Permalink to this headline">¶</a></h2>
+<p>Here&#8217;s the layout of a fictional Django project called &#8220;elderberry&#8221; with one
+app called &#8220;camelot&#8221;:</p>
+<div class="highlight-python"><div class="highlight"><pre>├─elderberry
+│ ├─apps/
+│ │ └─camelot
+│ │   ├─static/camelot
+│ │   │ ├─app.css
+│ │   │ └─app.js
+│ │   ├─static_src
+│ │   │ ├─js
+│ │   │ └─sass
+│ │   ├─templates/camelot
+│ │   │ └─index.html
+│ │   ├─tests/
+│ │   │ ├─test_models.py
+│ │   │ └─test_views.py
+│ │   ├─factories.py
+│ │   ├─models.py
+│ │   ├─url.py
+│ │   └─views.py
+│ ├─libs/
+│ ├─settings.py
+│ ├─urls.py
+│ └─wsgi.py
+├─.env
+├─LICENSE
+├─Makefile
+├─Procfile
+├─README.md
+├─manage.py
+├─package.json
+└─requirements.txt
+</pre></div>
 </div>
-<div class="section" id="project-license">
-<h2>Project License<a class="headerlink" href="#project-license" title="Permalink to this headline">¶</a></h2>
+<p>If it looks really complicated for a &#8220;simple&#8221; project, I think so too. I&#8217;m
+considering changing things up.</p>
+<div class="section" id="env">
+<h3><tt class="docutils literal"><span class="pre">.env</span></tt><a class="headerlink" href="#env" title="Permalink to this headline">¶</a></h3>
+<p>I store private configuration in an <tt class="docutils literal"><span class="pre">.env</span></tt> file. It usually looks something
+like:</p>
+<div class="highlight-python"><div class="highlight"><pre>DJANGO_SETTINGS_MODULE=elderberry.settings
+DATABASE_URL=postgres://docker@elderberry-db1/elderberry_dev
+</pre></div>
+</div>
+</div>
+<div class="section" id="license">
+<h3><tt class="docutils literal"><span class="pre">LICENSE</span></tt><a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h3>
 <p>I default to Apache. I hear it has better patent clauses.</p>
 </div>
-<div class="section" id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
-<p><strong>Python</strong>: one <tt class="docutils literal"><span class="pre">requirements.txt</span></tt> containing production, dev, and testing,
-etc. Normally, I would split these up, but for the simple approach, I use
-something simpler (hah!). Everything is pinned to a specific version.</p>
-<p><strong>Node</strong>: I use <a class="reference external" href="http://gruntjs.com/">Grunt</a> for compiling static media. It
-just works, has good support, and good documentation. The requirements are
-specified in <tt class="docutils literal"><span class="pre">package.json</span></tt>. I use CoffeeScript syntax for my Gruntfiles
-because I want more information in one screen, and so I don&#8217;t have to mess with
-trailing commas.</p>
-<p><strong>Ruby</strong>: I use <a class="reference external" href="http://sass-lang.com/">SASS</a> for compiling css.
-Specifically, I use SASS and not SCSS because I can fit more lines of code in
-one screen because SASS doesn&#8217;t use braces. In addition, I use SASS version 3.3
-because sourcemaps greatly improve the speed of writing CSS. I use a
-<tt class="docutils literal"><span class="pre">Gemfile</span></tt> and <tt class="docutils literal"><span class="pre">Gemfile.lock</span></tt> so everyone who is working on the project is
-using the same version of <a class="reference external" href="http://sass-lang.com/">SASS</a> and so we all get the same output.</p>
+<div class="section" id="makefile-task-runner">
+<h3><tt class="docutils literal"><span class="pre">Makefile</span></tt> / Task runner<a class="headerlink" href="#makefile-task-runner" title="Permalink to this headline">¶</a></h3>
+<p>I use <tt class="docutils literal"><span class="pre">make</span></tt> as my general task runner. For bigger projects, I add <a class="reference external" href="http://invoke.readthedocs.org/en/latest/">Invoke</a> too.</p>
+<p>My <tt class="docutils literal"><span class="pre">makefile</span></tt> commands are:</p>
+<ul class="simple">
+<li><strong>help</strong> &#8211; So when I type <tt class="docutils literal"><span class="pre">make</span></tt>, I get a help instead of accidentally
+running a task</li>
+<li><strong>clean</strong> &#8211; A kill &#8216;em all approach to deleting all transient state in the
+project</li>
+<li><strong>test</strong> &#8211; Always make <tt class="docutils literal"><span class="pre">make</span> <span class="pre">test</span></tt> a thing</li>
+<li><strong>resetdb</strong> &#8211; Have some way to blow away and recreate the database</li>
+</ul>
 </div>
-<div class="section" id="task-runner">
-<h2>Task Runner<a class="headerlink" href="#task-runner" title="Permalink to this headline">¶</a></h2>
-<p>I use <tt class="docutils literal"><span class="pre">make</span></tt> as my general task runner. For bigger projects, I like <a class="reference external" href="http://invoke.readthedocs.org/en/latest/">Invoke</a></p>
-<p>My <tt class="docutils literal"><span class="pre">makefile</span></tt> commands are: <em>TODO</em></p>
+<div class="section" id="procfile">
+<h3><tt class="docutils literal"><span class="pre">Procfile</span></tt><a class="headerlink" href="#procfile" title="Permalink to this headline">¶</a></h3>
+<p>For Heroku support. You&#8217;ll notice I use waitress instead of gunicorn like the
+Heroku docs say to use.</p>
+<p><a class="reference external" href="https://github.com/etianen/django-herokuapp/issues/9#issuecomment-14165240">waitress vs gunicorn</a></p>
 </div>
-<div class="section" id="settings">
-<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="readme-md">
+<h3><tt class="docutils literal"><span class="pre">README.md</span></tt><a class="headerlink" href="#readme-md" title="Permalink to this headline">¶</a></h3>
+<p>I use Markdown because I don&#8217;t like using ReStructured Text. Projects are never
+published to PyPI, so I can use the format I prefer.</p>
+</div>
+<div class="section" id="manage-py">
+<h3><tt class="docutils literal"><span class="pre">manage.py</span></tt><a class="headerlink" href="#manage-py" title="Permalink to this headline">¶</a></h3>
+<p>This is the one Django file I leave in the root because Heroku&#8217;s default Python
+buildpack will automatically run <tt class="docutils literal"><span class="pre">collectstatic</span></tt> for you if <tt class="docutils literal"><span class="pre">manage.py</span></tt> is
+in the root.</p>
+</div>
+<div class="section" id="package-json">
+<h3><tt class="docutils literal"><span class="pre">package.json</span></tt><a class="headerlink" href="#package-json" title="Permalink to this headline">¶</a></h3>
+<p>JavasScript requirements. I use <a class="reference external" href="http://gruntjs.com/">Grunt</a> for compiling
+static media. It just works, has good support, and good documentation. I use
+CoffeeScript syntax for my Gruntfiles because it&#8217;s terser, and so I don&#8217;t have
+to mess with trailing commas. This also means git diffs are more readable.</p>
+</div>
+<div class="section" id="requirements-txt">
+<h3><tt class="docutils literal"><span class="pre">requirements.txt</span></tt><a class="headerlink" href="#requirements-txt" title="Permalink to this headline">¶</a></h3>
+<p>I use one requirements file containing production, dev, testing, and ci
+requirements. For a bigger project, I would split these up so each environment
+only installs what it needs. For this simple project, I just throw everything
+into one file. Everything is pinned to a specific version to prevent pulling a
+breaking change.</p>
+<p>Notable requirements:</p>
+<ul class="simple">
+<li><strong>dj-database-url</strong> &#8211; pluck database settings from the environment</li>
+<li><strong>project-runpy</strong> &#8211; my own meta package of utilities:<ul>
+<li><strong>env</strong> &#8211; get environment variables without type casting boilerplate</li>
+<li><strong>ColorizingStreamHandler</strong> &#8211; friendlier console logging</li>
+<li><strong>ReadableSqlFilter</strong> &#8211; for debugging sql statements in the console log</li>
+</ul>
+</li>
+<li><strong>django-extensions</strong> &#8211; more utilites I find useful</li>
+<li><strong>whitenoise</strong> &#8211; for serving staticfiles</li>
+<li><strong>waitress</strong> &#8211; lightweight wsgi server instead of nginx/gunicorn</li>
+<li><strong>factory-boy</strong> &#8211; makes it easier to set up tests</li>
+</ul>
+</div>
+<div class="section" id="elderberry-settings-py">
+<h3><tt class="docutils literal"><span class="pre">elderberry/settings.py</span></tt><a class="headerlink" href="#elderberry-settings-py" title="Permalink to this headline">¶</a></h3>
 <p>I use a single <tt class="docutils literal"><span class="pre">settings.py</span></tt> file, not a settings module. Logic for different
 environments are done with environment variables.</p>
 </div>
-<div class="section" id="project-layout">
-<h2>Project Layout<a class="headerlink" href="#project-layout" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="apps">
-<h3><tt class="docutils literal"><span class="pre">apps/</span></tt><a class="headerlink" href="#apps" title="Permalink to this headline">¶</a></h3>
-<p>Based on research into other Django project layouts, and the <a class="reference external" href="http://django-skel.readthedocs.org/en/latest/layout/">django-skel</a> project. If it&#8217;s in your
+<div class="section" id="elderberry-urls-py">
+<h3><tt class="docutils literal"><span class="pre">elderberry/urls.py</span></tt><a class="headerlink" href="#elderberry-urls-py" title="Permalink to this headline">¶</a></h3>
+<p>I almost always add a namespace to my includes, even if my project only has one
+app. Odds are, you&#8217;re probably adding a namespace to your URL names one way or
+another. You might as well do it the way the developers intended. <em>TODO:
+favicon.ico and robots.txt</em></p>
+</div>
+<div class="section" id="elderberry-wsgi-py">
+<h3><tt class="docutils literal"><span class="pre">elderberry/wsgi.py</span></tt><a class="headerlink" href="#elderberry-wsgi-py" title="Permalink to this headline">¶</a></h3>
+<p>This is the standard Django wsgi.py with <tt class="docutils literal"><span class="pre">whitenoise</span></tt> to serve static media.
+If you&#8217;ve read the Heroku Django guide, it recommends dj-static, but my
+personal experience is that whitenoise is much better.</p>
+<p><a class="reference external" href="https://groups.google.com/d/msgid/django-developers/9B11AB1B-2850-401D-97BA-FB7C73268672%40gmail.com">django-developers discussion</a></p>
+</div>
+<div class="section" id="elderberry-apps">
+<h3><tt class="docutils literal"><span class="pre">elderberry/apps/</span></tt><a class="headerlink" href="#elderberry-apps" title="Permalink to this headline">¶</a></h3>
+<p>All internal Django apps go here. This means that your project will be full
+Based on research into other Django project layouts, and the <a class="reference external" href="http://django-skel.readthedocs.org/en/latest/layout/">django-skel</a> project. If it&#8217;s in your
 <tt class="docutils literal"><span class="pre">INSTALLED_APPS</span></tt>, it goes in the <tt class="docutils literal"><span class="pre">apps/</span></tt> directory.</p>
 </div>
-<div class="section" id="libs">
-<h3><tt class="docutils literal"><span class="pre">libs/</span></tt><a class="headerlink" href="#libs" title="Permalink to this headline">¶</a></h3>
-<p>I have a <tt class="docutils literal"><span class="pre">libs/</span></tt> directory like <a class="reference external" href="http://django-skel.readthedocs.org/en/latest/layout/">django-skel</a> too, except I reserve it for
-Python code that&#8217;s local to the project, but not in your <tt class="docutils literal"><span class="pre">INSTALLED_APPS</span></tt>.
-That usually means it&#8217;s full of little utilities, but there can be Django views
-here too, just nothing with models.</p>
+<div class="section" id="elderberry-libs">
+<h3><tt class="docutils literal"><span class="pre">elderberry/libs/</span></tt><a class="headerlink" href="#elderberry-libs" title="Permalink to this headline">¶</a></h3>
+<p>I have a <tt class="docutils literal"><span class="pre">libs/</span></tt> directory like <a class="reference external" href="http://django-skel.readthedocs.org/en/latest/layout/">django-skel</a> too, except I use it as a
+dumping ground for Python code that&#8217;s local to the project, but not in
+<tt class="docutils literal"><span class="pre">INSTALLED_APPS</span></tt>. That usually means it&#8217;s full of little utilities, but there
+can be Django views here too (just nothing with models). Think of this as a
+<tt class="docutils literal"><span class="pre">site-packages</span></tt> inside your project.</p>
 </div>
-<div class="section" id="static-src">
-<h3><tt class="docutils literal"><span class="pre">static_src/</span></tt><a class="headerlink" href="#static-src" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="elderberry-apps-camelot-static-src">
+<h3><tt class="docutils literal"><span class="pre">elderberry/apps/camelot/static_src/</span></tt><a class="headerlink" href="#elderberry-apps-camelot-static-src" title="Permalink to this headline">¶</a></h3>
 <p>I keep my SASS and JS files in <tt class="docutils literal"><span class="pre">static_src/</span></tt> directories, and <a class="reference external" href="http://gruntjs.com/">Grunt</a>
 compiles them into the typical <tt class="docutils literal"><span class="pre">static/</span></tt> directory. There are many reasons
 why I split them apart:</p>
 <ol class="arabic simple">
-<li>This establishes a separation between &#8220;source&#8221; files and &#8220;dist&#8221; files that
-are meant to be served.</li>
-<li>This keeps a lot of unnecessary dev files from getting into the production
-Django asset pipeline. They don&#8217;t get collected, don&#8217;t get hashed, and don&#8217;t
-clutter my deploy logs.</li>
+<li>This establishes a separation between &#8220;source&#8221; files developers workon and
+&#8220;dist&#8221; files that are meant to be served.</li>
+<li>This keeps dev files from getting into the production asset pipeline. They
+don&#8217;t get collected, don&#8217;t get hashed, and don&#8217;t clutter my deploy logs.</li>
 </ol>
+<p>The <tt class="docutils literal"><span class="pre">static/</span></tt> directory is in <tt class="docutils literal"><span class="pre">.gitignore</span></tt> so compiled files stay out of
+source control. Version pinning in <tt class="docutils literal"><span class="pre">package.json</span></tt> makes it so everyone
+generates the same output. For Heroku, the compiled files are force added to
+the source, but only for Heroku. For deployment elsewhere, the Dockerfile also
+builds and collects staticfiles.</p>
 </div>
 </div>
 <div class="section" id="todo">
 <h2>TODO<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Add coverage</li>
-<li>Procfile</li>
-<li>Grunfile.coffee</li>
-<li><tt class="docutils literal"><span class="pre">whitenoise</span></tt></li>
+<li>Gruntfile.coffee</li>
 <li>Bower</li>
 <li>Need to specify buildpack_url for heroku</li>
-<li>required .env</li>
 </ul>
 </div>
 </div>
@@ -139,17 +233,23 @@ clutter my deploy logs.</li>
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">A Simple Django 1.7 Project</a><ul>
+<li><a class="reference internal" href="#">A simple Django 1.7 project</a><ul>
 <li><a class="reference internal" href="#design-considerations">Design Considerations</a></li>
-<li><a class="reference internal" href="#project-readme">Project Readme</a></li>
-<li><a class="reference internal" href="#project-license">Project License</a></li>
-<li><a class="reference internal" href="#requirements">Requirements</a></li>
-<li><a class="reference internal" href="#task-runner">Task Runner</a></li>
-<li><a class="reference internal" href="#settings">Settings</a></li>
-<li><a class="reference internal" href="#project-layout">Project Layout</a><ul>
-<li><a class="reference internal" href="#apps"><tt class="docutils literal"><span class="pre">apps/</span></tt></a></li>
-<li><a class="reference internal" href="#libs"><tt class="docutils literal"><span class="pre">libs/</span></tt></a></li>
-<li><a class="reference internal" href="#static-src"><tt class="docutils literal"><span class="pre">static_src/</span></tt></a></li>
+<li><a class="reference internal" href="#django-project-layout">Django Project Layout</a><ul>
+<li><a class="reference internal" href="#env"><tt class="docutils literal"><span class="pre">.env</span></tt></a></li>
+<li><a class="reference internal" href="#license"><tt class="docutils literal"><span class="pre">LICENSE</span></tt></a></li>
+<li><a class="reference internal" href="#makefile-task-runner"><tt class="docutils literal"><span class="pre">Makefile</span></tt> / Task runner</a></li>
+<li><a class="reference internal" href="#procfile"><tt class="docutils literal"><span class="pre">Procfile</span></tt></a></li>
+<li><a class="reference internal" href="#readme-md"><tt class="docutils literal"><span class="pre">README.md</span></tt></a></li>
+<li><a class="reference internal" href="#manage-py"><tt class="docutils literal"><span class="pre">manage.py</span></tt></a></li>
+<li><a class="reference internal" href="#package-json"><tt class="docutils literal"><span class="pre">package.json</span></tt></a></li>
+<li><a class="reference internal" href="#requirements-txt"><tt class="docutils literal"><span class="pre">requirements.txt</span></tt></a></li>
+<li><a class="reference internal" href="#elderberry-settings-py"><tt class="docutils literal"><span class="pre">elderberry/settings.py</span></tt></a></li>
+<li><a class="reference internal" href="#elderberry-urls-py"><tt class="docutils literal"><span class="pre">elderberry/urls.py</span></tt></a></li>
+<li><a class="reference internal" href="#elderberry-wsgi-py"><tt class="docutils literal"><span class="pre">elderberry/wsgi.py</span></tt></a></li>
+<li><a class="reference internal" href="#elderberry-apps"><tt class="docutils literal"><span class="pre">elderberry/apps/</span></tt></a></li>
+<li><a class="reference internal" href="#elderberry-libs"><tt class="docutils literal"><span class="pre">elderberry/libs/</span></tt></a></li>
+<li><a class="reference internal" href="#elderberry-apps-camelot-static-src"><tt class="docutils literal"><span class="pre">elderberry/apps/camelot/static_src/</span></tt></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#todo">TODO</a></li>
@@ -159,7 +259,7 @@ clutter my deploy logs.</li>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="app.html"
-                        title="previous chapter">A Simple Django App</a></p>
+                        title="previous chapter">A simple Django app</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/project.txt"
@@ -189,7 +289,7 @@ clutter my deploy logs.</li>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="app.html" title="A Simple Django App"
+          <a href="app.html" title="A simple Django app"
              >previous</a> |</li>
         <li><a href="index.html">CRCCHECK Django Boilerplate 0.0.0 documentation</a> &raquo;</li> 
       </ul>
