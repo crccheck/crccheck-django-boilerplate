@@ -1,4 +1,4 @@
-A Simple Django App
+A simple Django app
 ===================
 
 *TODO*
