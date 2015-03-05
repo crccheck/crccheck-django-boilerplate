@@ -1,13 +1,16 @@
-Django==1.7.1
+Django==1.7.5
 
 dj-database-url==0.3.0
-psycopg2==2.5.4
+psycopg2==2.6
 project-runpy==0.3.1
-django-extensions==1.4.6
+django-extensions==1.5.0
+
+
+# Heroku
+whitenoise==1.0.6
+waitress==0.8.9
 
 
 # Dev requirements
-#
-# Use one requirements.txt to keep things simple for now.
-mock==1.0.1
 factory-boy==2.4.1
+mock==1.0.1
