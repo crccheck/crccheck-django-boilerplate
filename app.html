@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>A simple Django app &mdash; CRCCHECK Django Boilerplate 0.0.0 documentation</title>
+    <title>A Django app &mdash; crccheck Django Boilerplate 0.0.0 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,9 +23,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="CRCCHECK Django Boilerplate 0.0.0 documentation" href="index.html" />
-    <link rel="next" title="A Simple Django 1.7 Project" href="project.html" />
-    <link rel="prev" title="Welcome to CRCCHECK Django Boilerplate’s documentation!" href="index.html" /> 
+    <link rel="top" title="crccheck Django Boilerplate 0.0.0 documentation" href="index.html" />
+    <link rel="next" title="A redistributable Django app" href="pypi_app.html" />
+    <link rel="prev" title="A simple Django 1.7 project" href="project.html" /> 
   </head>
   <body>
     <div class="related">
@@ -35,12 +35,12 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="project.html" title="A Simple Django 1.7 Project"
+          <a href="pypi_app.html" title="A redistributable Django app"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to CRCCHECK Django Boilerplate’s documentation!"
+          <a href="project.html" title="A simple Django 1.7 project"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">CRCCHECK Django Boilerplate 0.0.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">crccheck Django Boilerplate 0.0.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -49,9 +49,107 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="a-simple-django-app">
-<h1>A simple Django app<a class="headerlink" href="#a-simple-django-app" title="Permalink to this headline">¶</a></h1>
-<p><em>TODO</em></p>
+  <div class="section" id="a-django-app">
+<h1>A Django app<a class="headerlink" href="#a-django-app" title="Permalink to this headline">¶</a></h1>
+<p>A Django project is build by combining apps together. This document will go
+over what a typical one of my apps looks like.</p>
+<p>My Django apps tend to like this (for an app named &#8220;camelot&#8221;):</p>
+<div class="highlight-python"><div class="highlight"><pre>├─management/commands
+├─scripts
+│ └─...
+├─static/camelot
+│ ├─app.css
+│ └─app.js
+├─static_src
+│ ├─js
+│ └─sass
+├─templates/camelot
+│ └─index.html
+├─tests/
+│ ├─test_models.py
+│ └─test_urls.py
+│ └─test_utils.py
+│ └─test_views.py
+├─admin.py
+├─apps.py
+├─factories.py
+├─models.py
+├─urls.py
+├─utils.py
+└─views.py
+</pre></div>
+</div>
+<div class="section" id="admin-py">
+<h2><tt class="docutils literal"><span class="pre">admin.py</span></tt><a class="headerlink" href="#admin-py" title="Permalink to this headline">¶</a></h2>
+<p>Django admin support.</p>
+</div>
+<div class="section" id="apps-py">
+<h2><tt class="docutils literal"><span class="pre">apps.py</span></tt><a class="headerlink" href="#apps-py" title="Permalink to this headline">¶</a></h2>
+<p>Django 1.7 <a class="reference external" href="https://docs.djangoproject.com/en/1.7/ref/applications/">App registry</a>
+config support.</p>
+</div>
+<div class="section" id="factories-py">
+<h2><tt class="docutils literal"><span class="pre">factories.py</span></tt><a class="headerlink" href="#factories-py" title="Permalink to this headline">¶</a></h2>
+<p>I use <a class="reference external" href="http://factoryboy.readthedocs.org/en/latest/index.html">Factory Boy</a>
+for all my projects to help write more readable tests.</p>
+</div>
+<div class="section" id="models-py">
+<h2><tt class="docutils literal"><span class="pre">models.py</span></tt><a class="headerlink" href="#models-py" title="Permalink to this headline">¶</a></h2>
+<p>Django models.</p>
+</div>
+<div class="section" id="urls-py">
+<h2><tt class="docutils literal"><span class="pre">urls.py</span></tt><a class="headerlink" href="#urls-py" title="Permalink to this headline">¶</a></h2>
+<p>Your URL patterns.</p>
+</div>
+<div class="section" id="utils-py">
+<h2><tt class="docutils literal"><span class="pre">utils.py</span></tt><a class="headerlink" href="#utils-py" title="Permalink to this headline">¶</a></h2>
+<p>Dumping ground for random code.</p>
+</div>
+<div class="section" id="views-py">
+<h2><tt class="docutils literal"><span class="pre">views.py</span></tt><a class="headerlink" href="#views-py" title="Permalink to this headline">¶</a></h2>
+<p>Django views.</p>
+</div>
+<div class="section" id="management-commands">
+<h2><tt class="docutils literal"><span class="pre">management/commands</span></tt><a class="headerlink" href="#management-commands" title="Permalink to this headline">¶</a></h2>
+<p>Django management commands.</p>
+</div>
+<div class="section" id="scripts">
+<h2><tt class="docutils literal"><span class="pre">scripts/</span></tt><a class="headerlink" href="#scripts" title="Permalink to this headline">¶</a></h2>
+<p>Scripts to be run from the command line. This code usually isn&#8217;t covered by
+test coverage, and is usually just a thin wrapper around code in utils. These
+are different from management commands because management commands need to be
+run after the app is incorporated into a project, but scripts may be an
+esoteric task you need to do in development.</p>
+</div>
+<div class="section" id="static-app-name">
+<h2><tt class="docutils literal"><span class="pre">static/{{</span> <span class="pre">app_name</span> <span class="pre">}}</span></tt><a class="headerlink" href="#static-app-name" title="Permalink to this headline">¶</a></h2>
+<p>CSS/JS/images, and other static assets you may need to render with the
+templates. Namespaced so they don&#8217;t get clobbered when static files are
+collected. If the integration project needs to override an asset, it&#8217;s
+namespaced in the project so developers know what it&#8217;s for.</p>
+</div>
+<div class="section" id="static-src">
+<h2><tt class="docutils literal"><span class="pre">static_src</span></tt><a class="headerlink" href="#static-src" title="Permalink to this headline">¶</a></h2>
+<p>SCSS/Sass/LESS/CoffeeScript/JSX/etc. to ∞ can go here. It can take many,
+sometimes hundreds of files to generate one CSS file. There&#8217;s no point in
+subjecting the deploy or integration project to the source files when they only
+need the end result. The static directory becomes much simpler because it only
+has (usually) one CSS and one JS and the images.</p>
+</div>
+<div class="section" id="templates-app-name">
+<h2><tt class="docutils literal"><span class="pre">templates/{{</span> <span class="pre">app_name</span> <span class="pre">}}</span></tt><a class="headerlink" href="#templates-app-name" title="Permalink to this headline">¶</a></h2>
+<p>Just like the static directory, templates need to be namespaced for the same
+reasons.</p>
+</div>
+<div class="section" id="tests">
+<h2><tt class="docutils literal"><span class="pre">tests/</span></tt><a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">startapp</span></tt> command will create a <tt class="docutils literal"><span class="pre">tests.py</span></tt> file, but I always use a
+module to organize tests better. I create my tests in the same order as the
+original code so I can browse them side-by-side. My views tests tend to be unit
+tests, while my <tt class="docutils literal"><span class="pre">urls.py</span></tt> use the test client to hit the url route, the view,
+and the template. I usually check the response code, the number of queries it
+takes to render a page, and headers (especially <tt class="docutils literal"><span class="pre">Vary</span></tt> and <tt class="docutils literal"><span class="pre">Cache-Control</span></tt>).</p>
+</div>
 </div>
 
 
@@ -60,12 +158,32 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">A Django app</a><ul>
+<li><a class="reference internal" href="#admin-py"><tt class="docutils literal"><span class="pre">admin.py</span></tt></a></li>
+<li><a class="reference internal" href="#apps-py"><tt class="docutils literal"><span class="pre">apps.py</span></tt></a></li>
+<li><a class="reference internal" href="#factories-py"><tt class="docutils literal"><span class="pre">factories.py</span></tt></a></li>
+<li><a class="reference internal" href="#models-py"><tt class="docutils literal"><span class="pre">models.py</span></tt></a></li>
+<li><a class="reference internal" href="#urls-py"><tt class="docutils literal"><span class="pre">urls.py</span></tt></a></li>
+<li><a class="reference internal" href="#utils-py"><tt class="docutils literal"><span class="pre">utils.py</span></tt></a></li>
+<li><a class="reference internal" href="#views-py"><tt class="docutils literal"><span class="pre">views.py</span></tt></a></li>
+<li><a class="reference internal" href="#management-commands"><tt class="docutils literal"><span class="pre">management/commands</span></tt></a></li>
+<li><a class="reference internal" href="#scripts"><tt class="docutils literal"><span class="pre">scripts/</span></tt></a></li>
+<li><a class="reference internal" href="#static-app-name"><tt class="docutils literal"><span class="pre">static/{{</span> <span class="pre">app_name</span> <span class="pre">}}</span></tt></a></li>
+<li><a class="reference internal" href="#static-src"><tt class="docutils literal"><span class="pre">static_src</span></tt></a></li>
+<li><a class="reference internal" href="#templates-app-name"><tt class="docutils literal"><span class="pre">templates/{{</span> <span class="pre">app_name</span> <span class="pre">}}</span></tt></a></li>
+<li><a class="reference internal" href="#tests"><tt class="docutils literal"><span class="pre">tests/</span></tt></a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">Welcome to CRCCHECK Django Boilerplate&#8217;s documentation!</a></p>
-  <h4>Next topic</h4>
   <p class="topless"><a href="project.html"
-                        title="next chapter">A Simple Django 1.7 Project</a></p>
+                        title="previous chapter">A simple Django 1.7 project</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pypi_app.html"
+                        title="next chapter">A redistributable Django app</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/app.txt"
@@ -95,12 +213,12 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="project.html" title="A Simple Django 1.7 Project"
+          <a href="pypi_app.html" title="A redistributable Django app"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to CRCCHECK Django Boilerplate’s documentation!"
+          <a href="project.html" title="A simple Django 1.7 project"
              >previous</a> |</li>
-        <li><a href="index.html">CRCCHECK Django Boilerplate 0.0.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">crccheck Django Boilerplate 0.0.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

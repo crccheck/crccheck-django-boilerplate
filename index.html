@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to CRCCHECK Django Boilerplate’s documentation! &mdash; CRCCHECK Django Boilerplate 0.0.0 documentation</title>
+    <title>crccheck’s Django Boilerplate &mdash; crccheck Django Boilerplate 0.0.0 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,8 +23,8 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="CRCCHECK Django Boilerplate 0.0.0 documentation" href="#" />
-    <link rel="next" title="A simple Django app" href="app.html" /> 
+    <link rel="top" title="crccheck Django Boilerplate 0.0.0 documentation" href="#" />
+    <link rel="next" title="A simple Django 1.7 project" href="project.html" /> 
   </head>
   <body>
     <div class="related">
@@ -34,9 +34,9 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="app.html" title="A simple Django app"
+          <a href="project.html" title="A simple Django 1.7 project"
              accesskey="N">next</a> |</li>
-        <li><a href="#">CRCCHECK Django Boilerplate 0.0.0 documentation</a> &raquo;</li> 
+        <li><a href="#">crccheck Django Boilerplate 0.0.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -45,18 +45,34 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="welcome-to-crccheck-django-boilerplate-s-documentation">
-<h1>Welcome to CRCCHECK Django Boilerplate&#8217;s documentation!<a class="headerlink" href="#welcome-to-crccheck-django-boilerplate-s-documentation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="crccheck-s-django-boilerplate">
+<h1>crccheck&#8217;s Django Boilerplate<a class="headerlink" href="#crccheck-s-django-boilerplate" title="Permalink to this headline">¶</a></h1>
 <p>Contents:</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="app.html">A simple Django app</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project.html">A simple Django 1.7 project</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="project.html#design-considerations">Design Considerations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="project.html#django-project-layout">Django Project Layout</a></li>
 <li class="toctree-l2"><a class="reference internal" href="project.html#todo">TODO</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="app.html">A Django app</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="app.html#admin-py"><tt class="docutils literal"><span class="pre">admin.py</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html#apps-py"><tt class="docutils literal"><span class="pre">apps.py</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html#factories-py"><tt class="docutils literal"><span class="pre">factories.py</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html#models-py"><tt class="docutils literal"><span class="pre">models.py</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html#urls-py"><tt class="docutils literal"><span class="pre">urls.py</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html#utils-py"><tt class="docutils literal"><span class="pre">utils.py</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html#views-py"><tt class="docutils literal"><span class="pre">views.py</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html#management-commands"><tt class="docutils literal"><span class="pre">management/commands</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html#scripts"><tt class="docutils literal"><span class="pre">scripts/</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html#static-app-name"><tt class="docutils literal"><span class="pre">static/{{</span> <span class="pre">app_name</span> <span class="pre">}}</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html#static-src"><tt class="docutils literal"><span class="pre">static_src</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html#templates-app-name"><tt class="docutils literal"><span class="pre">templates/{{</span> <span class="pre">app_name</span> <span class="pre">}}</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html#tests"><tt class="docutils literal"><span class="pre">tests/</span></tt></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pypi_app.html">A redistributable Django app</a></li>
 </ul>
 </div>
 <div class="section" id="disclaimer">
@@ -77,15 +93,15 @@ settings module.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Welcome to CRCCHECK Django Boilerplate&#8217;s documentation!</a><ul>
+<li><a class="reference internal" href="#">crccheck&#8217;s Django Boilerplate</a><ul>
 <li><a class="reference internal" href="#disclaimer">Disclaimer</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Next topic</h4>
-  <p class="topless"><a href="app.html"
-                        title="next chapter">A simple Django app</a></p>
+  <p class="topless"><a href="project.html"
+                        title="next chapter">A simple Django 1.7 project</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/index.txt"
@@ -115,9 +131,9 @@ settings module.</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="app.html" title="A simple Django app"
+          <a href="project.html" title="A simple Django 1.7 project"
              >next</a> |</li>
-        <li><a href="#">CRCCHECK Django Boilerplate 0.0.0 documentation</a> &raquo;</li> 
+        <li><a href="#">crccheck Django Boilerplate 0.0.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

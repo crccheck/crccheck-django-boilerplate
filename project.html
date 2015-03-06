@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>A simple Django 1.7 project &mdash; CRCCHECK Django Boilerplate 0.0.0 documentation</title>
+    <title>A simple Django 1.7 project &mdash; crccheck Django Boilerplate 0.0.0 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,8 +23,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="CRCCHECK Django Boilerplate 0.0.0 documentation" href="index.html" />
-    <link rel="prev" title="A simple Django app" href="app.html" /> 
+    <link rel="top" title="crccheck Django Boilerplate 0.0.0 documentation" href="index.html" />
+    <link rel="next" title="A Django app" href="app.html" />
+    <link rel="prev" title="crccheck’s Django Boilerplate" href="index.html" /> 
   </head>
   <body>
     <div class="related">
@@ -34,9 +35,12 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="app.html" title="A simple Django app"
+          <a href="app.html" title="A Django app"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="crccheck’s Django Boilerplate"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">CRCCHECK Django Boilerplate 0.0.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">crccheck Django Boilerplate 0.0.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -73,7 +77,7 @@ app called &#8220;camelot&#8221;:</p>
 │ │   │ └─test_views.py
 │ │   ├─factories.py
 │ │   ├─models.py
-│ │   ├─url.py
+│ │   ├─urls.py
 │ │   └─views.py
 │ ├─libs/
 │ ├─settings.py
@@ -90,7 +94,8 @@ app called &#8220;camelot&#8221;:</p>
 </pre></div>
 </div>
 <p>If it looks really complicated for a &#8220;simple&#8221; project, I think so too. I&#8217;m
-considering changing things up.</p>
+considering changing things up. In particuar, the apps folder makes for very
+long import statements and might be confusing with the new Django app registry.</p>
 <div class="section" id="env">
 <h3><tt class="docutils literal"><span class="pre">.env</span></tt><a class="headerlink" href="#env" title="Permalink to this headline">¶</a></h3>
 <p>I store private configuration in an <tt class="docutils literal"><span class="pre">.env</span></tt> file. It usually looks something
@@ -258,8 +263,11 @@ builds and collects staticfiles.</p>
 </ul>
 
   <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">crccheck&#8217;s Django Boilerplate</a></p>
+  <h4>Next topic</h4>
   <p class="topless"><a href="app.html"
-                        title="previous chapter">A simple Django app</a></p>
+                        title="next chapter">A Django app</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/project.txt"
@@ -289,9 +297,12 @@ builds and collects staticfiles.</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="app.html" title="A simple Django app"
+          <a href="app.html" title="A Django app"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="crccheck’s Django Boilerplate"
              >previous</a> |</li>
-        <li><a href="index.html">CRCCHECK Django Boilerplate 0.0.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">crccheck Django Boilerplate 0.0.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

@@ -3,16 +3,17 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to CRCCHECK Django Boilerplate's documentation!
-=======================================================
+crccheck's Django Boilerplate
+=============================
 
 Contents:
 
 .. toctree::
    :maxdepth: 2
 
-   app
    project
+   app
+   pypi_app
 
 
 Disclaimer

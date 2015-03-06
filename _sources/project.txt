@@ -32,7 +32,7 @@ app called "camelot"::
     │ │   │ └─test_views.py
     │ │   ├─factories.py
     │ │   ├─models.py
-    │ │   ├─url.py
+    │ │   ├─urls.py
     │ │   └─views.py
     │ ├─libs/
     │ ├─settings.py
@@ -48,7 +48,8 @@ app called "camelot"::
     └─requirements.txt
 
 If it looks really complicated for a "simple" project, I think so too. I'm
-considering changing things up.
+considering changing things up. In particuar, the apps folder makes for very
+long import statements and might be confusing with the new Django app registry.
 
 
 ``.env``
