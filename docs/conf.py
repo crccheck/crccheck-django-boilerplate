@@ -43,7 +43,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'CRCCHECK Django Boilerplate'
+project = u'crccheck Django Boilerplate'
 copyright = u'2014, crccheck'
 
 # The version info for the project you're documenting, acts as replacement for
