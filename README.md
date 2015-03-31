@@ -25,7 +25,7 @@ mkvirtualenv $project_name
 pip install Django
 django-admin startproject \
   --template=https://github.com/crccheck/crccheck-dj-project-boilerplate/archive/master.zip \
-  --extension=md,json --extension $project_name
+  --extension=md,json $project_name
 cd $project_name
 git init
 git commit -m "initial commit (empty)" --allow-empty
