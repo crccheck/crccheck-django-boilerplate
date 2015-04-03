@@ -7,6 +7,11 @@
 .agignore
 
 
+# Compiled
+{{ project_name }}/static/*.js
+{{ project_name }}/static/*.css
+
+
 # Randomly generated files
 *.pyc
 .DS_Store
