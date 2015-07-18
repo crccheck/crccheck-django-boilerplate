@@ -16,10 +16,6 @@ module.exports = (grunt) ->
           src: '{{ project_name }}/static/app.css'
           # overwrite original
           dest: '{{ project_name }}/static/app.css'
-    jshint:
-      all: [
-        '{{ project_name }}/static/js_src/**/*.js'
-      ]
     browserify:
       app:
         files:
@@ -61,6 +57,6 @@ module.exports = (grunt) ->
   # build the assets needed
   grunt.registerTask('build', ['sass', 'autoprefixer', 'browserify', 'uglify'])
   # build the assets with sanity checks
-  grunt.registerTask('default', ['sass', 'autoprefixer', 'jshint', 'browserify', 'uglify'])
+  grunt.registerTask('default', ['sass', 'autoprefixer', 'browserify', 'uglify'])
   # build assets and automatically re-build when a file changes
   grunt.registerTask('dev', ['build', 'watch'])
