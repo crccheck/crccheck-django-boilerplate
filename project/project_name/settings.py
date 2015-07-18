@@ -1,13 +1,3 @@
-"""
-Django settings for {{ project_name }} project.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/dev/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/dev/ref/settings/
-"""
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(__file__)
@@ -22,9 +12,7 @@ SECRET_KEY = env.get('SECRET_KEY', 'Rotom')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.get('DEBUG', False)
 
-TEMPLATE_DEBUG = DEBUG
-
-ALLOWED_HOSTS = ['*']  # TODO
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -74,10 +62,21 @@ USE_L10N = False
 
 USE_TZ = True
 
-
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates'),
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+            ],
+            'debug': DEBUG,
+        },
+    },
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/

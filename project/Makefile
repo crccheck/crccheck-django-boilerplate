@@ -2,12 +2,11 @@ MANAGE=python manage.py
 
 
 help:
-	@echo "make commands:"
-	@echo "  make help    - this help"
-	@echo "  make clean   - remove temporary files"
-	@echo "  make test    - run test suite"
-	@echo "  make resetdb - delete and recreate the database"
-
+	@echo "Help:"
+	@echo "--------------------------------------------------"
+	@echo "clean    remove temporary files"
+	@echo "test     run test suite"
+	@echo "resetdb  delete and recreate the database"
 
 clean:
 	rm -rf MANIFEST
@@ -17,10 +16,8 @@ clean:
 	find . -name "*.pyc" -delete
 	find . -name ".DS_Store" -delete
 
-
 test:
 	ENVIRONMENT=test $(MANAGE) test
-
 
 resetdb:
 	$(MANAGE) reset_db --noinput
