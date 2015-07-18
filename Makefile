@@ -12,3 +12,7 @@ docs:
 	  git add . && \
 	  git commit -m "build docs based on $(shorthash)" && \
 	  git push origin gh-pages
+
+
+push.project:
+	git subtree push --prefix=project project master
