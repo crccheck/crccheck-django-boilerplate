@@ -6,7 +6,7 @@ module.exports = (grunt) ->
         sourceMap: true
       dist:
         files:
-          '{{ project_name }}/static/app.css': '{{ project_name }}/static_src/sass/app.sass'
+          '{{ project_name }}/static/app.css': '{{ project_name }}/static_src/styles/app.sass'
     autoprefixer:
       options:
         browsers: ['last 2 versions']
@@ -31,7 +31,7 @@ module.exports = (grunt) ->
       options:
         livereload: true
       sass:
-        files: ['{{ project_name }}/static_src/sass/**/*.sass']
+        files: ['{{ project_name }}/static_src/styles/**/*.sass']
         tasks: ['sass', 'autoprefixer']
         options:
           livereload: false
