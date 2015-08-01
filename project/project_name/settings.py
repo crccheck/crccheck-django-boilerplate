@@ -6,10 +6,7 @@ import dj_database_url
 from project_runpy import env
 
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env.get('SECRET_KEY', 'Rotom')
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.get('DEBUG', False)
 
 ALLOWED_HOSTS = ['*']

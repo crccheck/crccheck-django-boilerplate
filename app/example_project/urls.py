@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 from django.http import HttpResponse
 from django.views.generic import TemplateView
 
@@ -12,7 +12,7 @@ def favicon(request):
     return HttpResponse(image_data, mimetype="image/x-icon")
 
 
-urlpatterns = patterns('',
+urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^', include('{{ project_name }}.urls',
@@ -22,4 +22,4 @@ urlpatterns = patterns('',
     url(r'^favicon.ico$', favicon),
     url(r'^robots.txt$', TemplateView.as_view(
         content_type='text/plain', template_name='robots.txt')),
-)
+]

@@ -8,22 +8,14 @@ from project_runpy import env
 BASE_DIR = os.path.dirname(__file__)
 
 
-# default to DEBUG=True
+SECRET_KEY = env.get('SECRET_KEY', 'Rotom')
 DEBUG = env.get('DEBUG')
-TEMPLATE_DEBUG = DEBUG
 
-ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
-)
-
-MANAGERS = ADMINS
+ALLOWED_HOSTS = ['*']
 
 DATABASES = {'default': dj_database_url.config(default='sqlite:///' +
     os.path.join(BASE_DIR, 'example_project.db'))}
 
-# Hosts/domain names that are valid for this site; required if DEBUG is False
-# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ['*']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -106,13 +98,6 @@ ROOT_URLCONF = 'example_project.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'example_project.wsgi.application'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    os.path.join(BASE_DIR, 'templates'),
-)
-
 INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -129,6 +114,21 @@ INSTALLED_APPS = [
     'django_extensions',
 ]
 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+            ],
+            'debug': DEBUG,
+        },
+    },
+]
 
 LOGGING = {
     'version': 1,
@@ -183,9 +183,3 @@ LOGGING = {
         },
     },
 }
-
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass

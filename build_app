@@ -21,4 +21,4 @@ django-admin.py startproject $DJ_NAME . \
 # django startapp
 \mv app_name $DJ_NAME
 
-echo "You'll have to manually edit the Makefile and replace project_name"
+echo "Done. You'll still have to manually edit the Makefile and replace project_name"

@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='{{ project_name }}',
     version='0.0.0',
-    author='',
+    author='Chris Chang',
     author_email='c@crccheck.com',
     url='',
     packages=['{{ project_name }}'],
